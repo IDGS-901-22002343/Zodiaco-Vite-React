@@ -1,0 +1,312 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset y configuración base */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-attachment: fixed;
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor principal */
+.fullscreen-container {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.main-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  min-height: 85vh;
+  margin: 10px;
+}
+
+/* Header */
+.header-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px 20px 0 0;
+  padding: 2rem 1rem !important;
+}
+
+/* Símbolo zodiacal */
+.zodiac-symbol-large {
+  font-size: 8rem;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #f4d03f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 8px 16px rgba(255, 215, 0, 0.4));
+  line-height: 1;
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.form-control.input-modern {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.form-control.input-modern:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.form-control.input-modern::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+}
+
+/* Etiquetas de formulario */
+.form-label {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  margin-bottom: 12px !important;
+  display: block !important;
+}
+
+.btn.btn-calculate {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  border-radius: 15px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 18px 40px !important;
+  font-size: 18px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.btn.btn-calculate:hover:not(:disabled) {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4) !important;
+  color: white !important;
+}
+
+.btn.btn-calculate:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Botón outline personalizado */
+.btn.btn-outline-light {
+  border-radius: 15px !important;
+  padding: 12px 30px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  color: #ffffff !important;
+}
+
+.btn.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* Resultados */
+.result-section {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 500px;
+  height: 100%;
+}
+
+.info-box {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.divider-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  border: none;
+  margin: 8px 0;
+}
+
+/* Imágenes responsivas */
+.zodiac-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.4));
+  margin-bottom: 20px;
+}
+
+.placeholder-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  opacity: 0.4;
+  margin-bottom: 20px;
+}
+
+/* Responsividad - Mobile First */
+@media (max-width: 575.98px) {
+  .main-card {
+    margin: 5px;
+    border-radius: 15px;
+    min-height: 95vh;
+  }
+  
+  .header-gradient {
+    border-radius: 15px 15px 0 0;
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .zodiac-symbol-large {
+    font-size: 4rem;
+  }
+  
+  .form-control.input-modern {
+    padding: 14px 16px !important;
+    font-size: 14px !important;
+  }
+  
+  .btn.btn-calculate {
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+  }
+  
+  .zodiac-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .placeholder-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header-gradient h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .header-gradient p {
+    font-size: 0.9rem !important;
+  }
+  
+  .form-label {
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .zodiac-symbol-large {
+    font-size: 5rem;
+  }
+  
+  .main-card {
+    margin: 8px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .zodiac-symbol-large {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-card {
+    margin: 20px auto;
+    max-width: 1400px;
+  }
+}
+
+/* Utilidades adicionales */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.lh-base {
+  line-height: 1.6;
+}
+
+.loading-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #667eea;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ff6b6b;
+  text-align: center;
+}
