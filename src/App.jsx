@@ -132,7 +132,6 @@ export default function App() {
   const [signoUsuario, setSignoUsuario] = useState(null);
   const [mostrarResultado, setMostrarResultado] = useState(false);
 
-  // Cargar Bootstrap CSS
   useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
@@ -166,40 +165,61 @@ export default function App() {
   const signoData = signoUsuario ? signosZodiacales[signoUsuario] : null;
 
   return (
-    <div className="fullscreen-container">
-      <div className="container-fluid px-3 py-3 h-100">
-        
-        <div className="main-card h-100">
-          {/* Header */}
-          <div className="header-gradient p-4 text-center">
-            <h1 className="poppins display-4 text-white fw-bold mb-2 text-shadow">Horóscopo Zodiacal</h1>
-            <p className="lead text-white mb-0 opacity-75">Descubre tu signo y horóscopo personalizado</p>
-          </div>
+    <div className="mystic-container">
 
-          <div className="p-3 p-md-4 p-lg-5 h-100">
-            <div className="row g-3 g-md-4 h-100">
+      <div className="stars"></div>
+      <div className="stars2"></div>
+      <div className="stars3"></div>
+
+
+      <div className="mystic-background"></div>
+      
+      <div className="container-fluid p-4 position-relative" style={{zIndex: 10, minHeight: '100vh'}}>
+        <div className="row justify-content-center">
+          <div className="col-12 col-xl-10">
+            
+
+            <div className="text-center mb-4 mb-md-5">
+              <h1 className="title-gradient display-1 fw-bold mb-3">
+                Zodiaco Místico React
+              </h1>
+              <p className="lead text-light opacity-75 fw-light">
+                Descifra tu horoscopo personalizado y descubre los secretos que los astros tienen reservados para ti.
+              </p>
+              <div className="mx-auto mt-4" style={{width: '128px', height: '1px', background: 'linear-gradient(90deg, transparent, #a855f7, transparent)'}}></div>
+            </div>
+
+            <div className="row g-4 g-lg-5 align-items-start">
               
-              {/* Columna izquierda - Formulario */}
               <div className="col-lg-6">
-                <div className="h-100 d-flex flex-column justify-content-center">
-                  <h3 className="poppins h4 text-white mb-4">Ingresa tus datos</h3>
+                <div className="glass-container p-4 p-md-5">
+                  <div className="text-center mb-4">
+                    <h3 className="section-title text-gradient-purple mb-3">
+                      Consulta Personal
+                    </h3>
+                    <div className="mx-auto" style={{width: '64px', height: '1px', background: 'linear-gradient(90deg, #a855f7, #ec4899)'}}></div>
+                  </div>
                   
                   <div className="mb-4">
-                    <label className="form-label text-white fw-medium mb-3">Nombre</label>
+                    <label className="mystic-label">
+                      Nombre
+                    </label>
                     <input 
                       type="text" 
-                      className="form-control input-modern"
+                      className="mystic-input"
                       value={nombre}
                       onChange={(e) => setNombre(e.target.value)}
-                      placeholder="Tu nombre completo"
+                      placeholder="Escribe tu nombre completo"
                     />
                   </div>
                   
                   <div className="mb-4">
-                    <label className="form-label text-white fw-medium mb-3">Fecha de Nacimiento</label>
+                    <label className="mystic-label">
+                      Fecha de Nacimiento
+                    </label>
                     <input 
                       type="date" 
-                      className="form-control input-modern"
+                      className="mystic-input"
                       value={fechaNacimiento}
                       onChange={(e) => setFechaNacimiento(e.target.value)}
                     />
@@ -207,33 +227,31 @@ export default function App() {
                   
                   <div className="d-grid mb-4">
                     <button 
-                      className="btn btn-calculate poppins"
+                      className="mystic-button"
                       onClick={calcularSigno}
                       disabled={!nombre || !fechaNacimiento}
                     >
-                      Calcular mi Signo Zodiacal
+                      Desifrar Mi Destino Astral
                     </button>
                   </div>
 
                   {mostrarResultado && (
-                    <div className="text-center mt-auto">
+                    <div className="text-center">
                       <button 
-                        className="btn btn-outline-light"
+                        className="mystic-button-secondary"
                         onClick={resetear}
                       >
-                        Nueva Consulta
+                        Nueva Consulta Astral
                       </button>
                     </div>
                   )}
                 </div>
               </div>
               
-              {/* Columna derecha - Resultado */}
               <div className="col-lg-6">
-                <div className="result-section p-3 p-md-4 h-100 d-flex align-items-center">
+                <div className="glass-container p-4 p-md-5 d-flex align-items-center" style={{minHeight: '600px'}}>
                   {mostrarResultado && signoData ? (
                     <div className="w-100">
-                      {/* Imagen y nombre del signo */}
                       <div className="text-center mb-4">
                         <img 
                           src={`https://cdn.roxyapi.com/img/astrology/${signoUsuario}.png`}
@@ -246,63 +264,65 @@ export default function App() {
                             fallback.textContent = signoData.simbolo;
                           }}
                         />
-                        <div className="zodiac-symbol-large mb-3" style={{display: 'none'}}></div>
-                        <h2 className="poppins h3 text-white fw-bold mb-2">Tu signo es: {signoData.nombre}</h2>
-                        <p className="text-white opacity-75 mb-0">{signoData.fechas}</p>
+                        <div className="zodiac-symbol" style={{display: 'none'}}></div>
+                        <h2 className="display-5 fw-bold mb-2 text-gradient-main">
+                          {signoData.nombre}
+                        </h2>
+                        <p className="text-light opacity-75 fs-5">{signoData.fechas}</p>
                       </div>
 
-                      {/* Información personal */}
                       <div className="mb-4">
-                        <h4 className="poppins text-white mb-3">{nombre}:</h4>
-                        <hr className="divider-line" />
-                        <hr className="divider-line" />
-                        <hr className="divider-line" />
+                        <h4 className="h3 fw-bold text-center" style={{color: '#d8b4fe'}}>
+                          Revelación para {nombre}
+                        </h4>
+                        <div className="my-3">
+                          <div className="divider-line"></div>
+                          <div className="divider-line"></div>
+                          <div className="divider-line"></div>
+                        </div>
                       </div>
 
-                      {/* Detalles del signo */}
                       <div className="row g-3 mb-4">
                         <div className="col-6">
-                          <div className="info-box p-3 text-center">
-                            <div className="text-white opacity-50 mb-1">Elemento</div>
-                            <div className="text-gradient fw-bold">{signoData.elemento}</div>
+                          <div className="info-card purple text-center">
+                            <div className="section-subtitle">Elemento Primordial</div>
+                            <div className="text-gradient-purple fw-bold fs-5">{signoData.elemento}</div>
                           </div>
                         </div>
                         <div className="col-6">
-                          <div className="info-box p-3 text-center">
-                            <div className="text-white opacity-50 mb-1">Planeta Regente</div>
-                            <div className="text-gradient fw-bold">{signoData.planeta}</div>
+                          <div className="info-card indigo text-center">
+                            <div className="section-subtitle">Regente Celestial</div>
+                            <div className="text-gradient-indigo fw-bold fs-5">{signoData.planeta}</div>
                           </div>
                         </div>
                       </div>
 
-                      {/* Horóscopo */}
                       <div>
-                        <h5 className="poppins text-white mb-3">Tu Horóscopo Personal:</h5>
-                        <div className="info-box p-3 p-md-4">
-                          <p className="text-white mb-0 lh-base opacity-90">
+                        <h5 className="section-title text-gradient-main text-center mb-3">
+                          Mensaje de los Astros
+                        </h5>
+                        <div className="horoscope-container">
+                          <p className="horoscope-text mb-0">
                             {signoData.horoscopo}
                           </p>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    /* Estado inicial */
-                    <div className="d-flex flex-column justify-content-center align-items-center w-100 text-center">
+                      <div className="text-center w-100">
                       <img 
                         src="https://cdn.roxyapi.com/img/astrology/zodiac-wheel.png"
                         alt="Rueda Zodiacal"
-                        className="placeholder-image"
+                        className="zodiac-image-placeholder"
                         onError={(e) => {
                           e.target.style.display = 'none';
-                          const fallback = e.target.nextElementSibling;
-                          fallback.style.display = 'block';
-                          fallback.textContent = '✨';
                         }}
                       />
-                      <div className="zodiac-symbol-large mb-4 opacity-25" style={{display: 'none'}}></div>
-                      <h4 className="poppins text-white mb-3">Tu Horóscopo te Espera</h4>
-                      <p className="text-white opacity-50 px-3">
-                        Completa el formulario para descubrir tu signo zodiacal y conocer lo que los astros tienen preparado para ti
+                      <h4 className="display-6 fw-bold text-gradient-main mb-3">
+                        El Cosmos Aguarda
+                      </h4>
+                      <p className="text-light opacity-75 fs-5 lh-base mx-auto" style={{maxWidth: '400px'}}>
+                        Completa los campos para descubrir qué secretos tiene el universo para ti.
                       </p>
                     </div>
                   )}
@@ -311,7 +331,6 @@ export default function App() {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
